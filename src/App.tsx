@@ -60,18 +60,12 @@ function RedirectHandler() {
   const location = useLocation()
 
   useEffect(() => {
-    console.log('RedirectHandler - Current location:', location.pathname + location.search + location.hash)
-    console.log('RedirectHandler - basename:', import.meta.env.BASE_URL)
-    
     // 检查sessionStorage中是否有重定向信息
     const redirectData = sessionStorage.getItem('spa-redirect')
-    console.log('RedirectHandler - redirectData:', redirectData)
     
     if (redirectData) {
       try {
         const { path, query, hash } = JSON.parse(redirectData)
-        console.log('RedirectHandler - Parsed path:', path, 'query:', query, 'hash:', hash)
-        
         sessionStorage.removeItem('spa-redirect')
         
         // 构建完整路径（不含basename，因为BrowserRouter会自动添加）
@@ -84,19 +78,11 @@ function RedirectHandler() {
           fullPath = '/' + fullPath
         }
         
-        console.log('RedirectHandler - Navigating to:', fullPath)
-        
         // 延迟导航，确保应用完全初始化
         setTimeout(() => {
-          // 检查是否已经在目标路径（考虑basename）
           const currentFullPath = location.pathname + location.search + location.hash
-          console.log('RedirectHandler - Delayed check, current:', currentFullPath)
-          
           if (fullPath !== currentFullPath) {
             navigate(fullPath, { replace: true })
-            console.log('RedirectHandler - Navigation executed')
-          } else {
-            console.log('RedirectHandler - Already at target path, skipping navigation')
           }
         }, 100)
       } catch (e) {
