@@ -61,14 +61,28 @@ function RedirectHandler() {
 
   useEffect(() => {
     // 检查sessionStorage中是否有重定向信息
-    const redirectData = sessionStorage.getItem('redirect')
+    const redirectData = sessionStorage.getItem('spa-redirect')
     if (redirectData) {
-      const { path, query, hash } = JSON.parse(redirectData)
-      sessionStorage.removeItem('redirect')
-      // 构建完整路径并导航
-      const fullPath = path + (query ? '?' + query : '') + (hash ? '#' + hash : '')
-      if (fullPath !== location.pathname) {
-        navigate(fullPath, { replace: true })
+      try {
+        const { path, query, hash } = JSON.parse(redirectData)
+        sessionStorage.removeItem('spa-redirect')
+        
+        // 构建完整路径
+        let fullPath = path || '/'
+        if (query) fullPath += query
+        if (hash) fullPath += hash
+        
+        // 确保路径以/开头
+        if (!fullPath.startsWith('/')) {
+          fullPath = '/' + fullPath
+        }
+        
+        // 导航到原始页面（使用replace避免历史记录问题）
+        if (fullPath !== location.pathname + location.search + location.hash) {
+          navigate(fullPath, { replace: true })
+        }
+      } catch (e) {
+        console.error('RedirectHandler error:', e)
       }
     }
   }, [navigate, location])

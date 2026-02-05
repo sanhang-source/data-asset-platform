@@ -5,24 +5,33 @@
     <title>数据资产管理平台</title>
     <script type="text/javascript">
       // 单页应用GitHub Pages重定向脚本
-      // 将路径存储到sessionStorage，然后重定向到首页
-      var pathSegmentsToKeep = 1; // 保留1段路径（仓库名）
-
-      var l = window.location;
-      var repo = l.pathname.split('/')[1]; // 获取仓库名
-      var path = l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/');
-      var query = l.search.slice(1);
-      var hash = l.hash.slice(1);
-      
-      // 保存原始URL到sessionStorage
-      sessionStorage.setItem('redirect', JSON.stringify({
-        path: '/' + path,
-        query: query,
-        hash: hash
-      }));
-      
-      // 重定向到首页
-      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/' + repo + '/');
+      (function() {
+        var l = window.location;
+        var pathname = l.pathname;
+        
+        // 获取仓库名（第一段路径）
+        var pathParts = pathname.split('/').filter(Boolean);
+        var repo = pathParts[0] || '';
+        
+        // 剩余路径（去掉仓库名）
+        var remainingPath = pathParts.slice(1).join('/');
+        
+        // 保存完整路径（包含仓库名后的所有路径）
+        var fullPath = '/' + remainingPath;
+        var query = l.search;
+        var hash = l.hash;
+        
+        // 保存原始URL到sessionStorage
+        sessionStorage.setItem('spa-redirect', JSON.stringify({
+          path: fullPath,
+          query: query,
+          hash: hash
+        }));
+        
+        // 重定向到首页（保留仓库名）
+        var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/' + repo + '/';
+        l.replace(redirectUrl);
+      })();
     </script>
   </head>
   <body>
