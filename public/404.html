@@ -16,20 +16,24 @@
         // 剩余路径（去掉仓库名）
         var remainingPath = pathParts.slice(1).join('/');
         
-        // 保存完整路径（包含仓库名后的所有路径）
+        // 保存完整路径（不包含仓库名，因为React Router会处理basename）
         var fullPath = '/' + remainingPath;
-        var query = l.search;
-        var hash = l.hash;
+        
+        console.log('404.html - pathname:', pathname);
+        console.log('404.html - repo:', repo);
+        console.log('404.html - fullPath:', fullPath);
         
         // 保存原始URL到sessionStorage
         sessionStorage.setItem('spa-redirect', JSON.stringify({
           path: fullPath,
-          query: query,
-          hash: hash
+          query: l.search,
+          hash: l.hash
         }));
         
         // 重定向到首页（保留仓库名）
         var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/' + repo + '/';
+        console.log('404.html - redirecting to:', redirectUrl);
+        
         l.replace(redirectUrl);
       })();
     </script>
