@@ -74,7 +74,7 @@ function RedirectHandler() {
         
         sessionStorage.removeItem('spa-redirect')
         
-        // 构建完整路径
+        // 构建完整路径（不含basename，因为BrowserRouter会自动添加）
         let fullPath = path || '/'
         if (query) fullPath += query
         if (hash) fullPath += hash
@@ -86,12 +86,19 @@ function RedirectHandler() {
         
         console.log('RedirectHandler - Navigating to:', fullPath)
         
-        // 导航到原始页面（使用replace避免历史记录问题）
-        if (fullPath !== location.pathname + location.search + location.hash) {
-          navigate(fullPath, { replace: true })
-        } else {
-          console.log('RedirectHandler - Already at target path, skipping navigation')
-        }
+        // 延迟导航，确保应用完全初始化
+        setTimeout(() => {
+          // 检查是否已经在目标路径（考虑basename）
+          const currentFullPath = location.pathname + location.search + location.hash
+          console.log('RedirectHandler - Delayed check, current:', currentFullPath)
+          
+          if (fullPath !== currentFullPath) {
+            navigate(fullPath, { replace: true })
+            console.log('RedirectHandler - Navigation executed')
+          } else {
+            console.log('RedirectHandler - Already at target path, skipping navigation')
+          }
+        }, 100)
       } catch (e) {
         console.error('RedirectHandler error:', e)
       }
