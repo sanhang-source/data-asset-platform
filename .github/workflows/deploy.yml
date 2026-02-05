@@ -31,13 +31,16 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Install dependencies
-        working-directory: ./data-asset-platform
-        run: npm install
+      - name: Check and Install dependencies
+        run: |
+          ls -la
+          cd data-asset-platform
+          npm install
       
       - name: Build with Vite
-        working-directory: ./data-asset-platform
-        run: npm run build:gh-pages
+        run: |
+          cd data-asset-platform
+          npm run build:gh-pages
         env:
           # 设置base路径为仓库名称
           VITE_BASE_URL: /${{ github.event.repository.name }}/
