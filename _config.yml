@@ -1,0 +1,22 @@
+# GitHub Pages Jekyll 配置
+# 禁用Jekyll处理，确保静态文件正确部署
+theme: jekyll-theme-minimal
+include:
+  - "_*"
+  - ".*"
+exclude:
+  - node_modules
+  - dist
+  - scripts
+  - src
+
+# 启用404页面
+permalink: pretty
+
+# 设置默认文件扩展名
+markdown: kramdown
+highlighter: rouge
+
+# 禁用Jekyll的默认处理
+safe: true
+plugins: []

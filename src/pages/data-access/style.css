@@ -1,0 +1,285 @@
+/* 数源机构详情页样式 */
+
+/* 详情卡片 */
+.detail-card {
+  /* 不设置margin，由layout-content统一控制padding */
+}
+
+/* 信息描述列表样式 */
+.info-descriptions {
+  margin-bottom: 24px;
+}
+
+/* 基本信息 - 列宽设置 */
+.info-descriptions .col-1 {
+  width: 25%;
+}
+
+.info-descriptions .col-2 {
+  width: 25%;
+}
+
+.info-descriptions .col-full {
+  width: 75%;
+}
+
+/* Descriptions 组件内部表格样式调整 */
+.info-descriptions .ant-descriptions-view {
+  width: 100%;
+}
+
+.info-descriptions .ant-descriptions-row {
+  display: flex;
+}
+
+.info-descriptions .ant-descriptions-item-label {
+  width: 180px !important;
+  min-width: 180px !important;
+  flex-shrink: 0 !important;
+  background-color: #fafafa;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.info-descriptions .ant-descriptions-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 第1列内容（奇数行第1个内容） */
+.info-descriptions .ant-descriptions-row > td:nth-child(2) {
+  width: calc(50% - 180px);
+}
+
+/* 第2列标签（偶数行标签） */
+.info-descriptions .ant-descriptions-row > td:nth-child(3) {
+  width: 180px !important;
+  min-width: 180px !important;
+}
+
+/* 第2列内容（偶数行内容）- 与第1列内容同宽 */
+.info-descriptions .ant-descriptions-row > td:nth-child(4) {
+  width: calc(50% - 180px);
+}
+
+/* 合作信息区域 */
+.cooperation-section {
+  margin-top: 24px;
+}
+
+/* 合作信息描述列表 - 继承基本信息的列宽设置 */
+.cooperation-descriptions {
+  margin-bottom: 16px;
+}
+
+/* 合同信息区域 */
+.contract-subsection {
+  margin-top: 16px;
+}
+
+/* 合同信息标题 */
+.subsection-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 合同表格样式 */
+.contract-table {
+  background-color: #fff;
+}
+
+.contract-table .ant-table {
+  font-size: 13px;
+}
+
+/* 确保表格内容不换行 */
+.contract-table td {
+  white-space: nowrap;
+}
+
+/* 合同信息头部样式 */
+.contract-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.contract-header .subsection-title {
+  margin-bottom: 0;
+  padding: 0;
+  border-bottom: none;
+}
+
+/* 征信客户经理信息区域 */
+.manager-section {
+  margin-top: 24px;
+}
+
+/* 表单描述列表样式 - 用于新增/编辑页面 */
+.form-descriptions .ant-descriptions-item-content {
+  padding: 0 !important;
+}
+
+.form-descriptions .ant-form-item {
+  margin-bottom: 0;
+}
+
+.form-descriptions .ant-input,
+.form-descriptions .ant-select,
+.form-descriptions .ant-picker {
+  width: 100%;
+}
+
+/* 表单区块标题样式 - 与详情页Descriptions title保持一致 */
+.form-section-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #262626 !important;
+  margin-bottom: 16px !important;
+  margin-top: 24px !important;
+}
+
+.form-section-title:first-of-type {
+  margin-top: 0 !important;
+}
+
+/* 合同详情页样式 */
+.contract-detail .module-section {
+  margin-top: 24px;
+}
+
+.contract-detail .module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.contract-detail .module-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+}
+
+/* 合同附件列表样式 */
+.contract-detail .attachment-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contract-detail .attachment-item {
+  width: 120px;
+  height: 140px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.contract-detail .attachment-item:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+}
+
+.contract-detail .attachment-icon {
+  font-size: 48px;
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.contract-detail .attachment-name {
+  font-size: 12px;
+  text-align: center;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.contract-detail .attachment-size {
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* 合同新增/编辑页 - 附件上传区域样式 */
+.contract-add .attachment-section,
+.contract-edit .attachment-section {
+  margin-top: 24px;
+}
+
+.contract-add .attachment-section-title,
+.contract-edit .attachment-section-title {
+  margin-bottom: 16px;
+}
+
+.contract-add .attachment-section-title .title-text,
+.contract-edit .attachment-section-title .title-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+  margin-right: 8px;
+}
+
+.contract-add .attachment-section-title .title-tip,
+.contract-edit .attachment-section-title .title-tip {
+  font-size: 13px;
+  color: #F59A23;
+}
+
+.contract-add .attachment-uploader,
+.contract-edit .attachment-uploader {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.contract-add .attachment-uploader .ant-upload-drag,
+.contract-edit .attachment-uploader .ant-upload-drag {
+  width: 120px !important;
+  height: 120px !important;
+  border: 1px dashed #d9d9d9 !important;
+  border-radius: 4px !important;
+  background-color: #fafafa !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.contract-add .attachment-uploader .ant-upload-drag:hover,
+.contract-edit .attachment-uploader .ant-upload-drag:hover {
+  border-color: #1890ff !important;
+}
+
+.contract-add .attachment-uploader .upload-icon,
+.contract-edit .attachment-uploader .upload-icon {
+  font-size: 24px;
+  color: #999;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.contract-add .attachment-uploader .upload-text,
+.contract-edit .attachment-uploader .upload-text {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .info-descriptions .ant-descriptions-item-label {
+    width: 150px !important;
+    min-width: 150px !important;
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "data-asset-platform",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy": "node scripts/deploy.js",
+    "deploy:simple": "node scripts/deploy-simple.js",
+    "build:gh-pages": "cross-env VITE_BASE_URL=/data-asset-platform/ vite build",
+    "predeploy": "npm run build:gh-pages",
+    "deploy:gh-pages": "node scripts/deploy-gh-pages.js"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.2.0",
+    "@antv/g6": "^5.0.51",
+    "antd": "^5.12.0",
+    "dayjs": "^1.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "ali-oss": "^6.18.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^16.3.1",
+    "gh-pages": "^6.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  }
+}
