@@ -22,6 +22,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+    defaults:
+      run:
+        working-directory: ./data-asset-platform
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,6 +35,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          cache-dependency-path: './data-asset-platform/package-lock.json'
       
       - name: Install dependencies
         run: npm ci
@@ -48,7 +53,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # 上传构建后的dist目录
-          path: './dist'
+          path: './data-asset-platform/dist'
   
   deploy:
     environment:
