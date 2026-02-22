@@ -122,6 +122,24 @@ const AssetAdd = () => {
               </Col>
               <Col span={12}>
                 <Form.Item
+                  name="updateFrequency"
+                  label="数据更新频率"
+                >
+                  <Select placeholder="请选择数据更新频率" allowClear>
+                    <Option value="实时">实时</Option>
+                    <Option value="每小时">每小时</Option>
+                    <Option value="每日">每日</Option>
+                    <Option value="每周">每周</Option>
+                    <Option value="每季度">每季度</Option>
+                    <Option value="每年">每年</Option>
+                  </Select>
+                </Form.Item>
+              </Col>
+            </Row>
+
+            <Row gutter={24}>
+              <Col span={12}>
+                <Form.Item
                   name="description"
                   label="数据资产说明"
                 >

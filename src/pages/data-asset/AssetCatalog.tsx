@@ -15,6 +15,7 @@ interface AssetItem {
   assetForm: string
   fieldCount: number
   dataVolume: number
+  updateFrequency?: string
   serviceStatus: '未服务' | '已服务'
   serviceCount: number
   customerCount: number
@@ -38,16 +39,16 @@ const AssetCatalog = () => {
   const [searchExpanded, setSearchExpanded] = useState(false)
 
   const [data] = useState<AssetItem[]>([
-    { id: '1', assetId: 'AST001', assetName: '企业信用评分数据集', assetNameEn: 'Enterprise Credit Score Dataset', assetCategory: '信用评价', assetForm: '产品表', fieldCount: 15, dataVolume: 1234567, serviceStatus: '已服务', serviceCount: 3, customerCount: 3, description: '' },
-    { id: '2', assetId: 'AST002', assetName: '行政处罚记录', assetNameEn: 'Administrative Penalty Record', assetCategory: '行政处罚', assetForm: '接口', fieldCount: 12, dataVolume: 856432, serviceStatus: '已服务', serviceCount: 2, customerCount: 2, description: '' },
-    { id: '3', assetId: 'AST003', assetName: '社保缴纳信息', assetNameEn: 'Social Security Payment Info', assetCategory: '社保信息', assetForm: '产品表', fieldCount: 20, dataVolume: 2567891, serviceStatus: '未服务', serviceCount: 0, customerCount: 0, description: '' },
-    { id: '4', assetId: 'AST004', assetName: '工商注册信息', assetNameEn: 'Business Registration Info', assetCategory: '工商信息', assetForm: '接口', fieldCount: 25, dataVolume: 3124567, serviceStatus: '已服务', serviceCount: 4, customerCount: 4, description: '' },
-    { id: '5', assetId: 'AST005', assetName: '企业纳税信用等级', assetNameEn: 'Enterprise Tax Credit Rating', assetCategory: '信用评价', assetForm: '产品表', fieldCount: 8, dataVolume: 534678, serviceStatus: '未服务', serviceCount: 0, customerCount: 0, description: '' },
-    { id: '6', assetId: 'AST006', assetName: '法律诉讼信息', assetNameEn: 'Legal Litigation Info', assetCategory: '风险预警', assetForm: '接口', fieldCount: 18, dataVolume: 987654, serviceStatus: '已服务', serviceCount: 2, customerCount: 2, description: '' },
-    { id: '7', assetId: 'AST007', assetName: '知识产权信息', assetNameEn: 'Intellectual Property Info', assetCategory: '企业信息', assetForm: '产品表', fieldCount: 22, dataVolume: 1834567, serviceStatus: '已服务', serviceCount: 3, customerCount: 3, description: '' },
-    { id: '8', assetId: 'AST008', assetName: '企业经营异常', assetNameEn: 'Enterprise Abnormal Operation', assetCategory: '风险预警', assetForm: '接口', fieldCount: 10, dataVolume: 456789, serviceStatus: '未服务', serviceCount: 0, customerCount: 0, description: '' },
-    { id: '9', assetId: 'AST009', assetName: '股东出资信息', assetNameEn: 'Shareholder Investment Info', assetCategory: '企业信息', assetForm: '产品表', fieldCount: 14, dataVolume: 712345, serviceStatus: '已服务', serviceCount: 2, customerCount: 2, description: '' },
-    { id: '10', assetId: 'AST010', assetName: '企业年报信息', assetNameEn: 'Enterprise Annual Report', assetCategory: '企业信息', assetForm: '接口', fieldCount: 30, dataVolume: 2234567, serviceStatus: '已服务', serviceCount: 5, customerCount: 5, description: '' },
+    { id: '1', assetId: 'AST001', assetName: '企业信用评分数据集', assetNameEn: 'Enterprise Credit Score Dataset', assetCategory: '信用评价', assetForm: '产品表', fieldCount: 15, dataVolume: 1234567, updateFrequency: '每日', serviceStatus: '已服务', serviceCount: 3, customerCount: 3, description: '' },
+    { id: '2', assetId: 'AST002', assetName: '行政处罚记录', assetNameEn: 'Administrative Penalty Record', assetCategory: '行政处罚', assetForm: '接口', fieldCount: 12, dataVolume: 856432, updateFrequency: '每周', serviceStatus: '已服务', serviceCount: 2, customerCount: 2, description: '' },
+    { id: '3', assetId: 'AST003', assetName: '社保缴纳信息', assetNameEn: 'Social Security Payment Info', assetCategory: '社保信息', assetForm: '产品表', fieldCount: 20, dataVolume: 2567891, updateFrequency: '每月', serviceStatus: '未服务', serviceCount: 0, customerCount: 0, description: '' },
+    { id: '4', assetId: 'AST004', assetName: '工商注册信息', assetNameEn: 'Business Registration Info', assetCategory: '工商信息', assetForm: '接口', fieldCount: 25, dataVolume: 3124567, updateFrequency: '实时', serviceStatus: '已服务', serviceCount: 4, customerCount: 4, description: '' },
+    { id: '5', assetId: 'AST005', assetName: '企业纳税信用等级', assetNameEn: 'Enterprise Tax Credit Rating', assetCategory: '信用评价', assetForm: '产品表', fieldCount: 8, dataVolume: 534678, updateFrequency: '每年', serviceStatus: '未服务', serviceCount: 0, customerCount: 0, description: '' },
+    { id: '6', assetId: 'AST006', assetName: '法律诉讼信息', assetNameEn: 'Legal Litigation Info', assetCategory: '风险预警', assetForm: '接口', fieldCount: 18, dataVolume: 987654, updateFrequency: '每日', serviceStatus: '已服务', serviceCount: 2, customerCount: 2, description: '' },
+    { id: '7', assetId: 'AST007', assetName: '知识产权信息', assetNameEn: 'Intellectual Property Info', assetCategory: '企业信息', assetForm: '产品表', fieldCount: 22, dataVolume: 1834567, updateFrequency: '每季度', serviceStatus: '已服务', serviceCount: 3, customerCount: 3, description: '' },
+    { id: '8', assetId: 'AST008', assetName: '企业经营异常', assetNameEn: 'Enterprise Abnormal Operation', assetCategory: '风险预警', assetForm: '接口', fieldCount: 10, dataVolume: 456789, updateFrequency: '每日', serviceStatus: '未服务', serviceCount: 0, customerCount: 0, description: '' },
+    { id: '9', assetId: 'AST009', assetName: '股东出资信息', assetNameEn: 'Shareholder Investment Info', assetCategory: '企业信息', assetForm: '产品表', fieldCount: 14, dataVolume: 712345, updateFrequency: '每年', serviceStatus: '已服务', serviceCount: 2, customerCount: 2, description: '' },
+    { id: '10', assetId: 'AST010', assetName: '企业年报信息', assetNameEn: 'Enterprise Annual Report', assetCategory: '企业信息', assetForm: '接口', fieldCount: 30, dataVolume: 2234567, updateFrequency: '每年', serviceStatus: '已服务', serviceCount: 5, customerCount: 5, description: '' },
   ])
 
   const fieldData = [
@@ -90,6 +91,13 @@ const AssetCatalog = () => {
       width: 120, 
       align: 'right' as const,
       render: (volume: number) => volume ? volume.toLocaleString() : '-'
+    },
+    { 
+      title: '数据更新频率', 
+      dataIndex: 'updateFrequency', 
+      width: 120, 
+      align: 'center' as const,
+      render: (frequency: string) => frequency ? <Tag color="blue">{frequency}</Tag> : '-'
     },
     { 
       title: '服务产品状态', 
@@ -437,7 +445,7 @@ const AssetCatalog = () => {
                 <span style={{ color: '#666' }}>图例：</span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                   <span style={{ width: 12, height: 12, background: '#f0f5ff', border: '1px solid #2f54eb', borderRadius: 2 }}></span>
-                  <span>数据源机构</span>
+                  <span>数源机构</span>
                 </span>
                 <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                   <span style={{ width: 12, height: 12, background: '#e6f7ff', border: '1px solid #1890ff', borderRadius: 2 }}></span>

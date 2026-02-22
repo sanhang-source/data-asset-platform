@@ -60,7 +60,7 @@ const pageTitleMap: Record<string, string> = {
   '/main/data-asset/fields': '数据资产目录',
   '/main/data-quality/interface': '接口质量监控',
   '/main/data-quality/table': '库表质量监控',
-  '/main/data-quality/indicator': '数据指标质量监控',
+  '/main/data-quality/indicator': '指标质量监控',
   '/main/data-quality/alerts': '告警消息中心',
   '/main/system/user': '用户管理',
   '/main/system/role': '角色管理',

@@ -283,3 +283,14 @@
     min-width: 150px !important;
   }
 }
+
+/* 数源机构新增/编辑页面样式 - 参照合同管理页面 */
+.organization-add .ant-row,
+.organization-edit .ant-row {
+  margin-bottom: 8px;
+}
+
+.organization-add .form-card .ant-form-item,
+.organization-edit .form-card .ant-form-item {
+  margin-bottom: 16px;
+}

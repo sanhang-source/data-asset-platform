@@ -85,8 +85,9 @@ const ContractAdd = () => {
           <Form
             form={form}
             layout="horizontal"
-            labelCol={{ span: 4 }}
-            wrapperCol={{ span: 20 }}
+            labelAlign="right"
+            labelCol={{ span: 6 }}
+            wrapperCol={{ span: 18 }}
             onFinish={onFinish}
             autoComplete="off"
           >
@@ -206,8 +207,8 @@ const ContractAdd = () => {
                 <Form.Item
                   name="remark"
                   label="备注"
-                  labelCol={{ span: 2 }}
-                  wrapperCol={{ span: 22 }}
+                  labelCol={{ span: 3 }}
+                  wrapperCol={{ span: 21 }}
                 >
                   <TextArea
                     placeholder="请输入备注信息"
@@ -239,7 +240,7 @@ const ContractAdd = () => {
               </Form.Item>
             </div>
 
-            <Form.Item wrapperCol={{ offset: 2, span: 22 }} style={{ marginTop: 24 }}>
+            <Form.Item wrapperCol={{ offset: 3, span: 21 }} style={{ marginTop: 24 }}>
               <Space>
                 <Button type="primary" htmlType="submit" loading={loading} icon={<SaveOutlined />}>
                   保存

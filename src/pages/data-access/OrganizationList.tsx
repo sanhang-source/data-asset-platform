@@ -184,7 +184,7 @@ const OrganizationList = () => {
       title: '统一社会信用代码',
       dataIndex: 'creditCode',
       key: 'creditCode',
-      width: 180,
+      width: 250,
     },
     {
       title: '数源机构类型',
@@ -223,7 +223,7 @@ const OrganizationList = () => {
       title: '接入数据资源数量',
       dataIndex: 'resourceCount',
       key: 'resourceCount',
-      width: 140,
+      width: 150,
       align: 'center' as const,
     },
     {
@@ -241,7 +241,7 @@ const OrganizationList = () => {
     {
       title: '操作',
       key: 'action',
-      width: 140,
+      width: 180,
       fixed: 'right' as const,
       render: (_: any, record: Organization) => (
         <Space size="small">

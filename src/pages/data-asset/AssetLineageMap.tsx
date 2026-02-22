@@ -261,7 +261,7 @@ const AssetLineageMap = () => {
   // 表格列定义
   const columns = [
     { title: '序号', key: 'index', width: 60, align: 'center' as const, render: (_: any, __: any, index: number) => index + 1 },
-    { title: '数据源机构ID', dataIndex: 'sourceOrgId', width: 130, align: 'left' as const, render: (text: string, record: FlatLineageRecord) => (
+    { title: '数源机构ID', dataIndex: 'sourceOrgId', width: 130, align: 'left' as const, render: (text: string, record: FlatLineageRecord) => (
       text ? <Button type="link" size="small" onClick={() => handleViewSourceOrg(record)} style={{ padding: 0, textAlign: 'left' }}>BM00001-068</Button> : '-'
     )},
     { title: '数据源表ID', dataIndex: 'sourceTableId', width: 110, render: (text: string) => text || '-' },
@@ -294,7 +294,7 @@ const AssetLineageMap = () => {
 
   // 查询表单字段
   const searchFields = [
-    { name: 'sourceOrgId', label: '数据源机构ID', component: <Input placeholder="请输入数据源机构ID" allowClear /> },
+    { name: 'sourceOrgId', label: '数源机构ID', component: <Input placeholder="请输入数源机构ID" allowClear /> },
     { name: 'sourceTableComment', label: '数据源表中文名', component: <Input placeholder="请输入数据源表中文名" allowClear /> },
     { name: 'sourceTableName', label: '数据源表英文名', component: <Input placeholder="请输入数据源表英文名" allowClear /> },
     { name: 'assetName', label: '数据资产中文名', component: <Input placeholder="请输入数据资产中文名" allowClear /> },
@@ -400,7 +400,7 @@ const AssetLineageMap = () => {
 
       {/* 数据源机构弹窗 */}
       <Modal
-        title="数据源机构"
+        title="数源机构"
         open={sourceOrgModalVisible}
         onCancel={() => setSourceOrgModalVisible(false)}
         footer={[
@@ -412,8 +412,8 @@ const AssetLineageMap = () => {
       >
         {selectedSourceOrg && (
           <div>
-            <p><strong>数据源机构ID：</strong>BM00001-068</p>
-            <p><strong>数据源机构名称：</strong>市市场监督管理局</p>
+            <p><strong>数源机构ID：</strong>BM00001-068</p>
+            <p><strong>数源机构名称：</strong>市市场监督管理局</p>
           </div>
         )}
       </Modal>

@@ -34,6 +34,7 @@ const AssetEdit = () => {
       assetNameEn: 'Enterprise Credit Score Dataset',
       assetCategory: '信用评价',
       assetForm: '产品表',
+      updateFrequency: '每日',
       description: '基于企业多维度数据计算得出的信用评分，用于评估企业信用状况',
     }
     form.setFieldsValue(mockData)
@@ -135,6 +136,24 @@ const AssetEdit = () => {
                   </Select>
                 </Form.Item>
               </Col>
+              <Col span={12}>
+                <Form.Item
+                  name="updateFrequency"
+                  label="数据更新频率"
+                >
+                  <Select placeholder="请选择数据更新频率" allowClear>
+                    <Option value="实时">实时</Option>
+                    <Option value="每小时">每小时</Option>
+                    <Option value="每日">每日</Option>
+                    <Option value="每周">每周</Option>
+                    <Option value="每季度">每季度</Option>
+                    <Option value="每年">每年</Option>
+                  </Select>
+                </Form.Item>
+              </Col>
+            </Row>
+
+            <Row gutter={24}>
               <Col span={12}>
                 <Form.Item
                   name="description"
