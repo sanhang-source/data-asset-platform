@@ -42,20 +42,21 @@ jobs:
           ls -la data-asset-platform 2>/dev/null || echo "data-asset-platform not found in root"
       
       - name: Install dependencies
-        working-directory: ./data-asset-platform
-        run: npm install
+        run: |
+          cd data-asset-platform
+          npm install
       
       - name: Build with Vite
-        working-directory: ./data-asset-platform
-        run: npm run build:gh-pages
+        run: |
+          cd data-asset-platform
+          npm run build:gh-pages
         env:
           VITE_BASE_URL: /data-asset-platform/
       
       - name: Check build output
-        working-directory: ./data-asset-platform
         run: |
           echo "Checking dist directory:"
-          ls -la dist || echo "dist not found!"
+          ls -la data-asset-platform/dist || echo "dist not found!"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
