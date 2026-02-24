@@ -31,32 +31,26 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Debug - List directory
+      - name: Debug - Check repository structure
         run: |
-          echo "Current directory:"
+          echo "=== Current directory ==="
           pwd
-          echo "Directory contents:"
-          ls -la
           echo ""
-          echo "Checking for data-asset-platform directory:"
-          ls -la data-asset-platform 2>/dev/null || echo "data-asset-platform not found in root"
+          echo "=== Directory contents ==="
+          ls -la
       
       - name: Install dependencies
-        run: |
-          cd data-asset-platform
-          npm install
+        run: npm install
       
       - name: Build with Vite
-        run: |
-          cd data-asset-platform
-          npm run build:gh-pages
+        run: npm run build:gh-pages
         env:
           VITE_BASE_URL: /data-asset-platform/
       
       - name: Check build output
         run: |
-          echo "Checking dist directory:"
-          ls -la data-asset-platform/dist || echo "dist not found!"
+          echo "=== Checking dist directory ==="
+          ls -la dist || echo "dist not found!"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -64,7 +58,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './data-asset-platform/dist'
+          path: './dist'
   
   deploy:
     environment:
