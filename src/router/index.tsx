@@ -1,9 +1,27 @@
+import { Suspense } from 'react'
 import { useRoutes } from 'react-router-dom'
+import { Spin } from 'antd'
 import { routes } from './routes'
+
+// 路由加载中组件
+const RouteLoading = () => (
+  <div style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh' 
+  }}>
+    <Spin size="large" tip="页面加载中..." />
+  </div>
+)
 
 // 使用 useRoutes Hook 渲染路由配置
 export const AppRoutes = () => {
-  return useRoutes(routes)
+  return (
+    <Suspense fallback={<RouteLoading />}>
+      {useRoutes(routes)}
+    </Suspense>
+  )
 }
 
 // 导出路由配置，供其他用途使用
