@@ -27,7 +27,8 @@ export default defineConfig(({ mode }) => {
       },
     },
     // 动态base路径配置，支持GitHub Pages子路径部署
-    base: process.env.VITE_BASE_URL || './',
+    // 使用加载时的环境变量，支持GitHub Pages子路径部署
+    base: './',
     build: {
       outDir: 'dist',
       assetsDir: 'assets',
